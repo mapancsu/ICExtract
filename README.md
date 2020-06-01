@@ -1,14 +1,12 @@
-# PyMass
+# ExTract
 Package for analyzing MS with Python
 
 It can provide the following functionalities now:
 
-
-* mzXMLParser for fast and efficient mzXML parse
-* FPIC method for extracting PICs from raw LC-MS dataset effectively and quickly
+* IC method for extracting IC from raw LC-MS dataset effectively and quickly
 
 
-In future, more file formats will be supported and more methods will be implemented into PyMass package, so researchers can create complex analysis workflows for LC-MS datasets in Python with ease.
+In future, more file formats will be supported and more methods will be implemented into EXTract package, so researchers can create complex analysis workflows for LC-MS datasets in Python with ease.
 
 # Install
 
@@ -36,7 +34,7 @@ In future, more file formats will be supported and more methods will be implemen
 
 ## Download
 
-* Download [pymass](https://github.com/zmzhang/pymass/archive/master.zip)
+* Download [EXTract](https://github.com/mapancsu/pymass/archive/master.zip)
 * Unzip it into pymass directory
 
 ## Compile
@@ -45,38 +43,32 @@ In future, more file formats will be supported and more methods will be implemen
 	* Run following commands in the prompt
 
 		```shell
-		cd pymass
+		cd ExTract
 		mkdir build
 		cd build
 		cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
 		nmake
 		nmake install
 		```
-* Linux:
-	* PyMass can be built and run smoothly in Ubuntu Linux 16.04. We provide a bash script to download thirdparty libraries, apply the patches, build pymass automatically
-		```shell
-		wget https://github.com/zmzhang/pymass/raw/master/build.sh
-		chmod +x build.sh
-		./build.sh
-		```	
+
 # Usage
 
 * Go to pymass/python directory
 * Download MM14 dataset from this [url](https://msbi.ipb-halle.de/download/Sample-1.tar.bz2) and unzip it
-* Run following Python code fragment to parse mzXML file and extract PICs from it
+* Run following Python code fragment to extract ICs from mzXML file
 
 	```python
-	from _pymass import mzXMLParser, FPICs
+	from _Extract import DDAMS, ICEXTract
 	import sys
 	mzfile="MM14_20um.mzxml"
 	mzfile=mzfile.encode(sys.getfilesystemencoding())
-	parser=mzXMLParser()
-	lcms = parser.parseFile(mzfile)
-	pics = FPICs(lcms, 300.0, 100.0, 0.5)
+	ddams=DDAMS()
+	ddams.load(mzfile)
+	ics = FPICs(ddams, 0.025, 300.0, 10.0, 10.0, 5.0)
 	```
 
 # Contact
 
 For any questions, please contact:
 
-[zmzhang@csu.edu.cn](mailto:zmzhang@csu.edu.cn)
+[mapan_spy@163.com](mailto:mapan_spy@163.com)

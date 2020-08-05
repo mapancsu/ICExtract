@@ -36,17 +36,28 @@ Package for analyzing MS with Python. It provides an  ion-chromatogram-extractio
 
 # Usage
 
-* Go to pymass/python directory
-* Run following Python code fragment to extract ion chromatogram from mzXML or mzML file
+* Download ICExtract_python.zip file from [url]([https://github.com/mapancsu/ICExtract/releases/tag/ICExtract)
+* Upzip ICExtract_python.zip file and go to /python directory
+* Run following Python code fragment to extract ion chromatogram from mzXML or mzML file.
 
 	```python
-	from _Extract import DDAMS, ICEXTract
+
+	from _ICExtract import DDAMS, DDA_PIC, DIAMS, DIA_PIC, MS2_PIC
 	import sys
-	mzfile="testfile.mzxml"
+	### for DDA-MS data
+	mzfile="DDAfile.mzxml" ## dda-ms file
 	mzfile=mzfile.encode(sys.getfilesystemencoding())
 	ddams=DDAMS()
 	ddams.load(mzfile)
-	ics = ICEXTract(ddams, 0.025, 300.0, 10.0, 10.0, 5.0)
+	ics_ms1 = DDA_PIC(ddams, 0.025, 300.0, 10.0, 10.0, 5.0)
+	
+	### for DIA-MS data
+	mzfile="DIAfile.mzxml" ## dia-ms file
+	mzfile=mzfile.encode(sys.getfilesystemencoding())
+	diams=DIAMS()
+	diams.load(mzfile)
+	ics_ms1 = DIA_PIC(diams, 0, 0.025, 300.0, 10.0, 10.0, 5.0) ## MS1
+	ics_ms2 = MS2_PIC(diams, 1, 0.025, 300.0, 10.0, 10.0, 5.0) ## MS2 
 	```
 
 # Contact

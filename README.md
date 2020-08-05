@@ -1,9 +1,5 @@
 # ICExtract
-Package for analyzing MS with Python
-
-It can provide the following functionalities now:
-
-* IC method for extracting IC from raw LC-MS dataset (including DDA-MS data and DIA-MS data) effectively and quickly.
+Package for analyzing MS with Python. It provides an  ion-chromatogram-extraction method based on  Greed Nearest Neighbor algorithm  for raw LC-MS dataset (including DDA-MS data and DIA-MS data) effectively and quickly.
 
 # Install
 
@@ -24,8 +20,7 @@ It can provide the following functionalities now:
 ## Compile
 * step 1 Compile OpenMS
 		Compile  by [OpenMS  Guide](https://github.com/OpenMS/OpenMS/wiki/Building-OpenMS)
-		Or using the  [Compiled Files]()
-* step 2
+* step 2 Compile ICExtract
 
 	* Open "VS2015 x64 Native Tools Command Prompt" 
 	* Run following commands in the prompt

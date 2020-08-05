@@ -5,11 +5,11 @@ if(MSVC)
 endif()
 
 include(SwigPython)
-add_swig_python_module(TARGET decDIA
+add_swig_python_module(TARGET ICExtract
                        CPLUSPLUS
-                       SWIG_I_FILE ${CMAKE_CURRENT_SOURCE_DIR}/decDIA.i
+                       SWIG_I_FILE ${CMAKE_CURRENT_SOURCE_DIR}/ICExtract.i
                        INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/../cpp
-                       LINK_LIBRARIES decDIA
+                       LINK_LIBRARIES ICExtract
                        SWIG_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/../swig
                        DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/)
 # If we wanted to, we could copy all the python source files to an install directory like /usr/local/lib/python2.7/site-packages

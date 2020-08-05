@@ -1,17 +1,10 @@
 #pragma once
-
 #include <iostream>
 #include <direct.h>
 #include <list>
 #include <set>
 #include "PIC.h"
 #include <numeric>
-//#include <OpenMS/KERNEL/MSSpectrum.h>
-//#include <OpenMS/FORMAT/MzXMLFile.h>
-//#include <OpenMS/FORMAT/MzMLFile.h>
-//#include <OpenMS/ANALYSIS/OPENSWATH/OPENSWATHALGO/DATAACCESS/SwathMap.h>
-//#include <OpenMS/FORMAT/SwathFile.h>
-//#include <OpenMS/CONCEPT/ClassTest.h>
 using namespace std;
 
 void DDAMS::loadfile(const std::string& filename)
@@ -341,7 +334,6 @@ std::vector<Eigen::Vector4d> DDAMS::getRegion(int mapi, double rt_begin, double 
 	return ret;
 }
 
-
 std::vector<Eigen::MatrixXd> DDA_PIC(DDAMS &ddams, double EER1, float min_int1, int MaxMissedScan, int min_lens)
 {
 	MassScan  map = ddams.maps[0];
@@ -596,7 +588,6 @@ std::vector<Eigen::Vector4d> DIAMS::getRegion(int mapi, double rt_begin, double 
 	return ret;
 }
 
-
 std::vector<Eigen::MatrixXd> DIA_PIC(DIAMS &diams, double EER1, float min_int1, int MaxMissedScan, int min_lens)
 {
 	MassScan  map = diams.maps[0];
@@ -610,6 +601,8 @@ std::vector<Eigen::MatrixXd> MS2_PIC(DIAMS &diams, int map_ind, float s_rt, floa
 	std::vector<Eigen::MatrixXd> PICs = PICByRT(map,s_rt, e_rt, EER, MaxMissedScan, min_lens, min_int);
 	return PICs;
 }
+
+
 
 void CollectSWATH(MassScan &map, Eigen::MatrixXd &Scans, std::vector<Eigen::VectorXi> &Pos, std::vector<int> &Nums, std::vector<double> &rts, std::vector<double> &ints)
 {
@@ -674,8 +667,6 @@ void CollectSWATHByRT(MassScan &map, float s_rt, float e_rt, Eigen::MatrixXd &Sc
 	}
 }
 
-
-//#include <omp.h>
 std::vector<Eigen::MatrixXd> PIC(MassScan &map, double EER, int MaxMissedScan, int min_lens, float min_int)
 {
 	std::vector<Eigen::MatrixXd> PICs;
@@ -847,7 +838,6 @@ void FillMissValue(Eigen::MatrixXd &pic)
 	}
 };
 
-
 void ionPIC(Eigen::MatrixXd &Scans, std::set<int> &includes, std::vector<Eigen::VectorXi> &Pos, std::vector<int> &Nums, std::vector<double> &rts, int index, double EER, int MaxMissedScan, std::list<Eigen::VectorXd> &PeakCurve, std::set<int> &Sincludes)
 {
 	//int ids = accumulate(Nums.begin(), Nums.begin() + Pos[index](0),0) + Pos[index](1);
@@ -1005,35 +995,3 @@ void FindCloseIon(Eigen::MatrixXd &Scans, int &st, int &en, Eigen::VectorXd &tar
 		};
 	};
 };
-
-
-
-//void CollectSWATH(MassScan &map, std::vector<Eigen::MatrixXd> &Scans, std::vector<Eigen::VectorXi> &Pos, std::vector<int> &Nums, std::vector<double> &ints, std::vector<double> &rts)
-//{
-//	int NrScan = map.rts.size();
-//	for (int i = 0; i < NrScan; i++)
-//	{
-//		double rt = map.rts(i);
-//		Nums.push_back(map.scans[i].rows());
-//		rts.push_back(rt);
-//	};
-//	//Scans.resize(Nums.size());
-//
-//	for (int i = 0; i < NrScan; i++)
-//	{
-//		double rt = rts[i];
-//		Eigen::MatrixXd spec;
-//		spec.resize(Nums[i], 3);
-//		for (int j = 0; j < Nums[i]; j++)
-//		{
-//			Eigen::Vector2i add(i, j);
-//			spec(j, 0) = rt;
-//			spec(j, 1) = map.scans[i](j, 0);
-//			spec(j, 2) = map.scans[i](j, 1);
-//			Pos.push_back(add);
-//			ints.push_back(map.scans[i](j, 1));
-//		}
-//		Scans.push_back(spec);
-//	}
-//
-//}

@@ -1,14 +1,12 @@
 include(GenerateExportHeader)
 include_directories(${PYTHON_INCLUDE_DIRS})
 
-add_library(decDIA SHARED PIC.cpp) #utils.cpp 
-#target_include_directories(decDIA PRIVATE ${TBB_INCLUDE_DIRS})
-target_link_libraries(decDIA ${PYTHON_LIBRARIES} OpenMS)
-set_target_properties(decDIA PROPERTIES COMPILE_FLAGS "-DDECDIA_EXPORTS")
-install(TARGETS decDIA DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../python)
-generate_export_header(decDIA)
+add_library(ICExtract SHARED PIC.cpp)
+target_link_libraries(ICExtract ${PYTHON_LIBRARIES} OpenMS)
+set_target_properties(ICExtract PROPERTIES COMPILE_FLAGS "-DICEXTRACT_EXPORTS")
+install(TARGETS ICExtract DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../python)
+generate_export_header(ICExtract)
 
-add_executable(testdecDIA main.cpp PIC.cpp)
-set_target_properties(testdecDIA PROPERTIES COMPILE_FLAGS "-DDECDIA_STATIC_DEFINE")
-#target_include_directories(testMZXML PRIVATE ${TBB_INCLUDE_DIRS})
-target_link_libraries(testdecDIA ${PYTHON_LIBRARIES} OpenMS)
+add_executable(testICExtract main.cpp PIC.cpp)
+set_target_properties(testICExtract PROPERTIES COMPILE_FLAGS "-DICEXTRACT_STATIC_DEFINE")
+target_link_libraries(testICExtract ${PYTHON_LIBRARIES} OpenMS)

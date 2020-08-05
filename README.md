@@ -36,7 +36,7 @@ Package for analyzing MS with Python. It provides an  ion-chromatogram-extractio
 
 # Usage
 
-* Download ICExtract_python.zip file from [url]([https://github.com/mapancsu/ICExtract/releases/tag/ICExtract)
+* Download ICExtract_python.zip file from [url](https://github.com/mapancsu/ICExtract/releases/tag/ICExtract)
 * Upzip ICExtract_python.zip file and go to /python directory
 * Run following Python code fragment to extract ion chromatogram from mzXML or mzML file.
 

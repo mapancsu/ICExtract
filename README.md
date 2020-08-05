@@ -62,6 +62,4 @@ Package for analyzing MS with Python. It provides an  ion-chromatogram-extractio
 
 # Contact
 
-For any questions, please contact:
-
-[mapan_spy@163.com](mailto:mapan_spy@163.com)
+For any questions, please contact:  [mapan_spy@163.com](mailto:mapan_spy@163.com)

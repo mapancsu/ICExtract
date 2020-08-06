@@ -14,30 +14,26 @@ Package for analyzing MS with Python. It provides an  ion-chromatogram-extractio
 	
 ## Download
 
-* Download [ICExtract](https://github.com/mapancsu/ICExtract/archive/master.zip)
-* Unzip it into ICExtract directory
+* Download [ICExtract](https://github.com/mapancsu/ICExtract/archive/master.zip).
+* Unzip it into ICExtract directory.
 
 ## Compile
-* step 1 Compile OpenMS
-		Compile  by [OpenMS  Guide](https://github.com/OpenMS/OpenMS/wiki/Building-OpenMS)
-* step 2 Compile ICExtract
+* step 1 Compile OpenMS by [OpenMS  Guide](https://github.com/OpenMS/OpenMS/wiki/Building-OpenMS).
+* step 2 Compile ICExtract. Open "VS2015 x64 Native Tools Command Prompt" ; Run following commands in the prompt.
 
-	* Open "VS2015 x64 Native Tools Command Prompt" 
-	* Run following commands in the prompt
-
-		```shell
-		cd ICExtract
-		mkdir build
-		cd build
-		cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
-		nmake
-		nmake install
-		```
+	```shell
+	cd ICExtract
+	mkdir build
+	cd build
+	cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
+	nmake
+	nmake install
+	```
 
 # Usage
 
-* Download ICExtract_python.zip file from [url](https://github.com/mapancsu/ICExtract/releases/tag/ICExtract)
-* Upzip ICExtract_python.zip file and go to /python directory
+* Download ICExtract_python.zip file from [url](https://github.com/mapancsu/ICExtract/releases/tag/ICExtract).
+* Upzip ICExtract_python.zip file and go to /python directory.
 * Run following Python code fragment to extract ion chromatogram from mzXML or mzML file.
 
 	```python
